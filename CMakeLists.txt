@@ -3,4 +3,4 @@ project(Biblio)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Biblio main.cpp Livre.cpp Livre.h Emprunteur.cpp Emprunteur.h)
+add_executable(Biblio main.cpp Livre.cpp Livre.h Emprunteur.cpp Emprunteur.h BD.cpp BD.h)
