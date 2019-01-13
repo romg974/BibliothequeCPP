@@ -8,14 +8,20 @@
 
 using namespace std;
 
-const string &BD::getDessinateur() const {
+string BD::getDessinateur() {
     return dessinateur;
 }
 
-void BD::setDessinateur(const string &dessinateur) {
+void BD::setDessinateur(string dessinateur) {
     BD::dessinateur = dessinateur;
 }
 
-BD::BD(int code, const string &auteur, const string &titre, const string &editeur, const string &isbn,
-       const string &public_destine, const string &dessinateur) : Livre(code, auteur, titre, editeur, isbn,
-                                                                        public_destine), dessinateur(dessinateur) {}
+BD::BD(int code, string auteur, string titre, string editeur, string isbn,string public_destine, string dessinateur)
+                    : Livre(code, auteur, titre, editeur, isbn, public_destine){
+    this->dessinateur = dessinateur
+}
+//
+//void BD::affiche(){
+//    Livre::affiche();
+//    cout<<"Dessinateur :" << dessinateur<<endl;
+//}

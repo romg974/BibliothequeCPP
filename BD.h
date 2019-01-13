@@ -13,11 +13,12 @@ using namespace std;
 
 class BD : public Livre {
 public:
-    BD(int code, const string &auteur, const string &titre, const string &editeur, const string &isbn,
-       const string &public_destine, const string &dessinateur);
+    BD(int code, string auteur, string titre, string editeur, string isbn, string public_destine,
+            string dessinateur);
 
-    const string &getDessinateur() const;
-    void setDessinateur(const string &dessinateur);
+    string getDessinateur();
+    void setDessinateur(string dessinateur);
+//    void affiche();
 
 private:
     string dessinateur;
