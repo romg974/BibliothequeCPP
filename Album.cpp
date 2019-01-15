@@ -20,7 +20,7 @@ void Album::setIllustrations(string illustrations) {
     this->siecle = siecle;
 }
 
-//void Album::affiche() {
-//    Livre::affiche();
-//    cout<<"type d'illustrations :" << illustrations<<endl;
-//}
+void Album::affiche() {
+    Livre::affiche();
+    cout<<"type d'illustrations :" << illustrations<<endl;
+}

@@ -19,7 +19,7 @@ void PieceDeTheatre::setSiecle(int siecle) {
     this->siecle = siecle;
 }
 
-//void PieceDeTheatre::affiche() {
-//    Livre::affiche();
-//    cout<<"Siècle d'écriture :" << siecle<<endl;
-//}
+void PieceDeTheatre::affiche() {
+    Livre::affiche();
+    cout<<"Siècle d'écriture :" << siecle<<endl;
+}

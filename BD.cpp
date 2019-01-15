@@ -20,8 +20,8 @@ BD::BD(int code, string auteur, string titre, string editeur, string isbn,string
                     : Livre(code, auteur, titre, editeur, isbn, public_destine){
     this->dessinateur = dessinateur;
 }
-//
-//void BD::affiche(){
-//    Livre::affiche();
-//    cout<<"Dessinateur :" << dessinateur<<endl;
-//}
+
+void BD::affiche(){
+    Livre::affiche();
+    cout<<"Dessinateur :" << dessinateur<<endl;
+}

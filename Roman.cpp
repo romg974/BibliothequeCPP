@@ -20,7 +20,7 @@ void Roman::setGenre(string genre) {
     this->genre = genre;
 }
 
-//void Roman::affiche() {
-//    Livre::affiche();
-//    cout<<"Genre :" << genre<<endl;
-//}
+void Roman::affiche() {
+    Livre::affiche();
+    cout<<"Genre :" << genre<<endl;
+}
