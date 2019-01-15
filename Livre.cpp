@@ -56,3 +56,8 @@ const string &Livre::getPublic_destine() const {
 void Livre::setPublic_destine(const string &public_destine) {
     Livre::public_destine = public_destine;
 }
+
+void Livre::affiche()
+{
+
+}
