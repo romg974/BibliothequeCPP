@@ -17,7 +17,7 @@ string Album::getIllustrations(){
 }
 
 void Album::setIllustrations(string illustrations) {
-    this->siecle = siecle;
+    this->illustrations = illustrations;
 }
 
 void Album::affiche() {

@@ -19,7 +19,7 @@ public:
 
     string getStyle();
     void setStyle(string style);
-//    void affiche();
+    void affiche();
 };
 
 #endif //BIBLIOTHEQUECPP_POESIE_H

@@ -18,6 +18,6 @@ public:
           string public_destine, string illustrations);
     string getIllustrations();
     void setIllustrations(string illustrations);
-//    void affiche();
+    void affiche();
 };
 #endif //BIBLIOTHEQUECPP_ALBUM_H

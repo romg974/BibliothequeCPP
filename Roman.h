@@ -18,7 +18,7 @@ public:
            string public_destine, string genre);
     string getGenre();
     void setGenre(string genre);
-//    void affiche();
+    void affiche();
 };
 
 
