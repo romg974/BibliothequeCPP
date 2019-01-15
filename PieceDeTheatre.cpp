@@ -21,5 +21,5 @@ void PieceDeTheatre::setSiecle(int siecle) {
 
 void PieceDeTheatre::affiche() {
     Livre::affiche();
-    cout<<"Siècle d'écriture :" << siecle<<endl;
+    cout<<" | Siècle d'écriture :" << getSiecle()<<endl;
 }

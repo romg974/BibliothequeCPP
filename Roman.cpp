@@ -22,5 +22,5 @@ void Roman::setGenre(string genre) {
 
 void Roman::affiche() {
     Livre::affiche();
-    cout<<"Genre :" << genre<<endl;
+    cout<<" | Genre :" << getGenre()<<endl;
 }

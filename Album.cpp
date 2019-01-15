@@ -22,5 +22,5 @@ void Album::setIllustrations(string illustrations) {
 
 void Album::affiche() {
     Livre::affiche();
-    cout<<"type d'illustrations :" << illustrations<<endl;
+    cout<<" | Type d'illustrations :" << getIllustrations() <<endl;
 }
