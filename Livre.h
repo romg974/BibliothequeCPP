@@ -25,6 +25,7 @@ public:
     const string &getPublic_destine() const;
     void setPublic_destine(const string &public_destine);
     int getCode() const;
+    void affiche();
 
 private:
     int code;

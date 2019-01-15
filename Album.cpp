@@ -9,7 +9,7 @@ using namespace std;
 
 Album::Album(int code, string auteur, string titre, string editeur, string isbn,string public_destine, string illustrations)
         : Livre(code, auteur, titre, editeur, isbn, public_destine) {
-    this->illustrations = illustrations
+    this->illustrations = illustrations;
 }
 
 string Album::getIllustrations(){

@@ -18,7 +18,7 @@ void BD::setDessinateur(string dessinateur) {
 
 BD::BD(int code, string auteur, string titre, string editeur, string isbn,string public_destine, string dessinateur)
                     : Livre(code, auteur, titre, editeur, isbn, public_destine){
-    this->dessinateur = dessinateur
+    this->dessinateur = dessinateur;
 }
 //
 //void BD::affiche(){

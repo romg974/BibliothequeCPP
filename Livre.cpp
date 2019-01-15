@@ -59,5 +59,6 @@ void Livre::setPublic_destine(const string &public_destine) {
 
 void Livre::affiche()
 {
-
+    cout<<'Titre : '<< titre <<' | Auteur : '<< auteur <<' | Editeur : '<< editeur <<' | Public :'<< public_destine <<
+    ' | ISBN :'<< isbn;
 }
