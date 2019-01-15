@@ -18,7 +18,7 @@ public:
 
     string getDessinateur();
     void setDessinateur(string dessinateur);
-//    void affiche();
+    void affiche();
 
 private:
     string dessinateur;

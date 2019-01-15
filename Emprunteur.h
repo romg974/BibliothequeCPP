@@ -14,13 +14,15 @@ class Emprunteur {
 public:
     Emprunteur(int type);
 
+    Emprunteur();
+
     int getType() const;
 
-    Livre *getLivres() const;
+    Livre *getLivresEmpruntes() const;
 
 private:
     int type;
-    Livre* livres;
+    Livre* livres_empruntes;
 };
 
 

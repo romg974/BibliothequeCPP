@@ -5,6 +5,8 @@
 #include "BD.h"
 
 #include <iostream>
+#include <string>
+
 
 using namespace std;
 
@@ -23,5 +25,5 @@ BD::BD(int code, string auteur, string titre, string editeur, string isbn,string
 
 void BD::affiche(){
     Livre::affiche();
-    cout<<"Dessinateur :" << dessinateur<<endl;
+    cout << " | Dessinateur : " << getDessinateur();
 }

@@ -4,12 +4,17 @@
 
 #include "Livre.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 Livre::Livre(int code, const string &auteur, const string &titre, const string &editeur, const string &isbn,
              const string &public_destine) : code(code), auteur(auteur), titre(titre), editeur(editeur), isbn(isbn),
                                              public_destine(public_destine) {
+
+}
+
+Livre::Livre() {
 
 }
 
@@ -59,6 +64,9 @@ void Livre::setPublic_destine(const string &public_destine) {
 
 void Livre::affiche()
 {
-    cout<<'Titre : '<< titre <<' | Auteur : '<< auteur <<' | Editeur : '<< editeur <<' | Public :'<< public_destine <<
-    ' | ISBN :'<< isbn;
+    cout << "Titre : " << getTitre()
+         << " | Auteur : "<< getAuteur()
+         << " | Editeur : "<< editeur
+         << " | Public : "<< public_destine
+         << " | ISBN : "<< isbn;
 }

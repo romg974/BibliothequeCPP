@@ -10,10 +10,12 @@ using namespace std;
 
 Emprunteur::Emprunteur(int type) : type(type) {}
 
+Emprunteur::Emprunteur() {}
+
 int Emprunteur::getType() const {
     return type;
 }
 
-Livre *Emprunteur::getLivres() const {
-    return livres;
+Livre *Emprunteur::getLivresEmpruntes() const {
+    return livres_empruntes;
 }

@@ -14,6 +14,8 @@ public:
     Livre(int code, const string &auteur, const string &titre, const string &editeur, const string &isbn,
           const string &public_destine);
 
+    Livre();
+
     const string &getAuteur() const;
     void setAuteur(const string &auteur);
     const string &getTitre() const;
@@ -25,7 +27,7 @@ public:
     const string &getPublic_destine() const;
     void setPublic_destine(const string &public_destine);
     int getCode() const;
-    void affiche();
+    virtual void affiche();
 
 private:
     int code;
