@@ -37,6 +37,7 @@ public:
 
     int getNum_adherent() const;
 
+    void emprunte(int code);
 private:
     string nom;
     string prenom;
@@ -44,6 +45,7 @@ private:
     int num_adherent;
     Bibliotheque* bibliotheque;
     int autorisation_emprunt;
+    vector<Livre> emprunted;
 };
 
 

@@ -10,9 +10,7 @@
 
 using namespace std;
 
-Bibliotheque::Bibliotheque(const string &nom, const string &adresse, int code) : nom(nom), adresse(adresse), code(code) {
-    nbLivres = 0;
-}
+Bibliotheque::Bibliotheque(const string &nom, const string &adresse, int code) : nom(nom), adresse(adresse), code(code) {}
 
 const string &Bibliotheque::getNom() const {
     return nom;

@@ -3,13 +3,14 @@
 //
 
 #include "Adherent.h"
+#include "Bibliotheque.h"
 
 #include <iostream>
 
 using namespace std;
 
 Adherent::Adherent(int type, const string &nom, const string &prenom, const string &adresse, int num_adherent,
-                   Bibliotheque *bibliotheque, int autorisation_emprunt) : Emprunteur(type), nom(nom), prenom(prenom),
+                   Bibliotheque *bibliotheque, int autorisation_emprunt, ) : Emprunteur(type), nom(nom), prenom(prenom),
                                                                            adresse(adresse), num_adherent(num_adherent),
                                                                            bibliotheque(bibliotheque),
                                                                            autorisation_emprunt(autorisation_emprunt) {}
@@ -56,4 +57,11 @@ void Adherent::setAutorisationEmprunt(int autorisation_emprunt){
 
 int Adherent::getNum_adherent() const {
     return num_adherent;
+}
+
+void Adherent::emprunte(int code){
+    for(auto i = 0; i < Adherent::bibliotheque.getLivres()->size() ; i++){
+        const vector<Livre> *livres = Adherent::bibliotheque->getLivres();
+        if (code == livres[i].getCode()){}
+    }
 }
