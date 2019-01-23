@@ -9,12 +9,15 @@
 using namespace std;
 class Emprunteur;
 
+
+
 class Livre {
 public:
     Livre(int code, const string &auteur, const string &titre, const string &editeur, const string &isbn,
           const string &public_destine);
 
     Livre();
+    Livre(const Livre*);
 
     const string &getAuteur() const;
     void setAuteur(const string &auteur);
@@ -34,7 +37,10 @@ public:
     void setEmprunte_par(Emprunteur *emprunte_par);
     void restitue();
 
+    enum types { LIVRE, BD, ALBUM, POESIE, ROMAN, PIECE};
+
 protected:
+    int type;
     int code;
     string auteur;
     string titre;

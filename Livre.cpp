@@ -14,10 +14,17 @@ Livre::Livre(int code, const string &auteur, const string &titre, const string &
              const string &public_destine) : code(code), auteur(auteur), titre(titre), editeur(editeur), isbn(isbn),
                                              public_destine(public_destine) {
     emprunte_par = nullptr;
+    type = Livre::LIVRE;
 }
 
 Livre::Livre() {
+    emprunte_par = nullptr;
+    type = Livre::LIVRE;
+}
 
+Livre::Livre(const Livre* l) : code(l->getCode()), auteur(l->getAuteur()), titre(l->getTitre()), editeur(l->getEditeur()), isbn(l->getIsbn()), public_destine(l->getPublic_destine()){
+    emprunte_par = nullptr;
+    type = Livre::LIVRE;
 }
 
 int Livre::getCode() const {
@@ -88,6 +95,9 @@ void Livre::affiche()
         if(emprunte_par->getType() == 0){
             Adherent* adh = dynamic_cast<Adherent*>(emprunte_par);
             cout << "Emprunte par " << adh->getNom() << " " << adh->getPrenom();
+        }else if(emprunte_par->getType() == 1){
+            Bibliotheque* b = dynamic_cast<Bibliotheque*>(emprunte_par);
+            cout << "Emprunte par la bibliotheque " << b->getNom();
         }
 
     }else{

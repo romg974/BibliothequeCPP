@@ -11,6 +11,8 @@ using namespace std;
 Roman::Roman(int code, string auteur, string titre, string editeur, string isbn,string public_destine, string genre)
         : Livre(code, auteur, titre, editeur, isbn, public_destine) {
     this->genre = genre;
+    this->type = Livre::ROMAN;
+
 }
 
 string Roman::getGenre(){
