@@ -6,11 +6,12 @@
 #include "Bibliotheque.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-Adherent::Adherent(int type, const string &nom, const string &prenom, const string &adresse, int num_adherent,
-                   Bibliotheque *bibliotheque, int autorisation_emprunt, ) : Emprunteur(type), nom(nom), prenom(prenom),
+Adherent::Adherent(const string &nom, const string &prenom, const string &adresse, int num_adherent,
+                   Bibliotheque *bibliotheque, int autorisation_emprunt ) : Emprunteur(0), nom(nom), prenom(prenom),
                                                                            adresse(adresse), num_adherent(num_adherent),
                                                                            bibliotheque(bibliotheque),
                                                                            autorisation_emprunt(autorisation_emprunt) {}
@@ -60,8 +61,40 @@ int Adherent::getNum_adherent() const {
 }
 
 void Adherent::emprunte(int code){
-    for(auto i = 0; i < Adherent::bibliotheque.getLivres()->size() ; i++){
-        const vector<Livre> *livres = Adherent::bibliotheque->getLivres();
-        if (code == livres[i].getCode()){}
+    if(livres_empruntes.size() >= getAutorisationEmprunt()){
+        cout << "Cet adhérent a déjà trop de livres..." << endl;
+        return;
     }
+    Livre* l = bibliotheque->emprunte(code, this);
+    if(l != nullptr){
+        livres_empruntes.push_back(l);
+    }
+}
+
+void Adherent::restitue(int code) {
+    bool found = false;
+    int num = 0;
+    for(auto i = 0; i < livres_empruntes.size() ; i++){
+        if(livres_empruntes[i]->getCode() == code){
+            found = true;
+            num = i;
+        }
+    }
+
+    if(!found){
+        cout << "Cet adhérent n'a pas emprunté ce livre..." << endl;
+        return;
+    }
+
+
+}
+
+void Adherent::affiche()
+{
+    //*
+    cout << "Adherent : " << getPrenom() << " " << getNom()
+         << " | Adresse : "<< getAdresse()
+         << " | Bilbliotheque : "<< getBibliotheque()->getNom()
+         << " | Livres : "<< livres_empruntes.size() << "/" << getAutorisationEmprunt();
+         //*/
 }

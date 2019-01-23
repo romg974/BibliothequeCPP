@@ -3,6 +3,8 @@
 //
 
 #include "Album.h"
+#include <iostream>
+#include <string>
 
 
 using namespace std;
@@ -22,5 +24,5 @@ void Album::setIllustrations(const string &illustrations) {
 
 void Album::affiche() {
     Livre::affiche();
-    cout<<" | Type d'illustrations :" << getIllustrations().c_str() <<endl;
+    cout << " | Type d'illustrations :" << getIllustrations() << endl;
 }

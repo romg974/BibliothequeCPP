@@ -25,6 +25,7 @@ public:
     void setCode(int code);
     const vector<Livre> *getLivres() const;
     void addLivre(Livre &livre);
+    void removeLivre(int);
     void affiche();
     Livre* emprunte(int, Emprunteur*);
     void restitue(int);

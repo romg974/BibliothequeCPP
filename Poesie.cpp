@@ -5,6 +5,7 @@
 #include "Poesie.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -23,5 +24,5 @@ void Poesie::setStyle(string style) {
 
 void Poesie::affiche() {
     Livre::affiche();
-    cout<<" | Style :" << getStyle().c_str()<<endl;
+    cout<<" | Style :" << getStyle() <<endl;
 }
