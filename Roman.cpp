@@ -4,6 +4,7 @@
 
 #include "Roman.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -22,5 +23,5 @@ void Roman::setGenre(string genre) {
 
 void Roman::affiche() {
     Livre::affiche();
-    cout<<" | Genre :" << getGenre().c_str()<<endl;
+    cout << " | Genre :" << getGenre() <<endl;
 }

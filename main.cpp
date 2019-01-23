@@ -21,7 +21,7 @@ int main() {
 
     biblio.affiche();
 
-    Adherent adherent = Adherent("GRONDIN", "Romain", "2 Quai de Rive Neuve 13001", 1, &biblio, 4);
+    Adherent adherent = Adherent("GRONDIN", "Romain", "2 Quai de Rive Neuve 13001", 1, &biblio, 1);
 
     adherent.affiche();
 
@@ -38,9 +38,11 @@ int main() {
 
     //biblio.emprunte(bd.getCode(), &adherent);
     adherent.emprunte(bd.getCode());
+    adherent.emprunte(bd.getCode());
     bd.affiche();
     cout << endl;
     biblio.affiche();
+    biblio.removeLivre(livre.getCode());
 
     cout << endl;
     biblio.restitue(bd.getCode());

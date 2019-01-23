@@ -34,6 +34,7 @@ public:
 
     void affiche();
     void emprunte(int code);
+    void restitue(int code);
 private:
     string nom;
     string prenom;

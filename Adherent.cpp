@@ -6,6 +6,7 @@
 #include "Bibliotheque.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -60,16 +61,40 @@ int Adherent::getNum_adherent() const {
 }
 
 void Adherent::emprunte(int code){
+    if(livres_empruntes.size() >= getAutorisationEmprunt()){
+        cout << "Cet adhérent a déjà trop de livres..." << endl;
+        return;
+    }
     Livre* l = bibliotheque->emprunte(code, this);
-    livres_empruntes.push_back(l);
+    if(l != nullptr){
+        livres_empruntes.push_back(l);
+    }
+}
+
+void Adherent::restitue(int code) {
+    bool found = false;
+    int num = 0;
+    for(auto i = 0; i < livres_empruntes.size() ; i++){
+        if(livres_empruntes[i]->getCode() == code){
+            found = true;
+            num = i;
+        }
+    }
+
+    if(!found){
+        cout << "Cet adhérent n'a pas emprunté ce livre..." << endl;
+        return;
+    }
+
+
 }
 
 void Adherent::affiche()
 {
     //*
-    cout << "Adherent : " << getPrenom().c_str() << " " << getNom().c_str()
-         << " | Adresse : "<< getAdresse().c_str()
-         << " | Bilbliotheque : "<< getBibliotheque()->getNom().c_str()
-         << " | Livres max : "<< getAutorisationEmprunt();
+    cout << "Adherent : " << getPrenom() << " " << getNom()
+         << " | Adresse : "<< getAdresse()
+         << " | Bilbliotheque : "<< getBibliotheque()->getNom()
+         << " | Livres : "<< livres_empruntes.size() << "/" << getAutorisationEmprunt();
          //*/
 }

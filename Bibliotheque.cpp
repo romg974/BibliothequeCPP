@@ -45,6 +45,23 @@ void Bibliotheque::addLivre(Livre &livre) {
     livres.push_back(livre);
 }
 
+void Bibliotheque::removeLivre(int code) {
+    bool found = false;
+    int num = 0;
+    for(auto i = 0; i < livres.size() ; i++){
+        if(livres[i].getCode() == code){
+            found = true;
+            num = i;
+        }
+    }
+
+    if(!found){
+        cout << "Ce livre n'existe pas" << endl;
+    }
+
+    livres.erase(livres.begin() + num);
+}
+
 void Bibliotheque::affiche()
 {
     cout << "BIBLIOTHEQUE " << getNom() << endl;
@@ -80,7 +97,7 @@ Livre* Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
 
     if(livre->getEmprunte_par() != nullptr){
         //TODO: exception
-        cout << "Deja emprunte";
+        cout << "Deja emprunte" << endl;
         return nullptr;
     }
 
@@ -93,7 +110,7 @@ void Bibliotheque::restitue(int code) {
 
     if(livre->getEmprunte_par() == nullptr){
         //TODO: exception
-        cout << "Pas emprunte";
+        cout << "Pas emprunte" << endl;
         return;
     }
 
