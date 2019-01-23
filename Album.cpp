@@ -12,15 +12,15 @@ Album::Album(int code, string auteur, string titre, string editeur, string isbn,
     this->illustrations = illustrations;
 }
 
-string Album::getIllustrations(){
+const string &Album::getIllustrations() const {
     return illustrations;
 }
 
-void Album::setIllustrations(string illustrations) {
-    this->illustrations = illustrations;
+void Album::setIllustrations(const string &illustrations) {
+    Album::illustrations = illustrations;
 }
 
 void Album::affiche() {
     Livre::affiche();
-    cout<<" | Type d'illustrations :" << getIllustrations() <<endl;
+    cout<<" | Type d'illustrations :" << getIllustrations().c_str() <<endl;
 }

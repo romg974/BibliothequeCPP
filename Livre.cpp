@@ -62,6 +62,18 @@ void Livre::setPublic_destine(const string &public_destine) {
     Livre::public_destine = public_destine;
 }
 
+Emprunteur *Livre::getEmprunte_par() const {
+    return emprunte_par;
+}
+
+void Livre::setEmprunte_par(Emprunteur *emprunte_par) {
+    Livre::emprunte_par = emprunte_par;
+}
+
+void Livre::restitue() {
+    Livre::emprunte_par = nullptr;
+}
+
 void Livre::affiche()
 {
     cout << "Titre : " << getTitre()

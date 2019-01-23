@@ -7,7 +7,7 @@
 
 #include <iostream>
 using namespace std;
-
+class Emprunteur;
 
 class Livre {
 public:
@@ -29,14 +29,19 @@ public:
     int getCode() const;
     virtual void affiche();
 
-private:
+    Emprunteur *getEmprunte_par() const;
+
+    void setEmprunte_par(Emprunteur *emprunte_par);
+    void restitue();
+
+protected:
     int code;
     string auteur;
     string titre;
     string editeur;
     string isbn;
     string public_destine;
-    string emprunte_par;
+    Emprunteur* emprunte_par;
 };
 
 

@@ -4,13 +4,14 @@
 
 #include "Bibliotheque.h"
 #include "Livre.h"
+#include "Emprunteur.h"
 
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-Bibliotheque::Bibliotheque(const string &nom, const string &adresse, int code) : nom(nom), adresse(adresse), code(code) {}
+Bibliotheque::Bibliotheque(const string &nom, const string &adresse, int code) : Emprunteur(1), nom(nom), adresse(adresse), code(code) {}
 
 const string &Bibliotheque::getNom() const {
     return nom;
@@ -53,4 +54,47 @@ void Bibliotheque::affiche()
         livres[i].affiche();
         cout << endl;
     }
+}
+
+Livre* Bibliotheque::getLivreFromCode(int code) {
+    bool found = false;
+    int num = 0;
+    for(auto i = 0; i < livres.size() ; i++){
+        if(livres[i].getCode() == code){
+            found = true;
+            num = i;
+        }
+    }
+
+    if(!found){
+        //TODO: exception
+        cout << "Not found";
+        return nullptr;
+    }
+
+    return &livres[num];
+}
+
+void Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
+    Livre* livre = getLivreFromCode(code);
+
+    if(livre->getEmprunte_par() != nullptr){
+        //TODO: exception
+        cout << "Deja emprunte";
+        return;
+    }
+
+    livre->setEmprunte_par(emprunteur);
+}
+
+void Bibliotheque::restitue(int code) {
+    Livre* livre = getLivreFromCode(code);
+
+    if(livre->getEmprunte_par() == nullptr){
+        //TODO: exception
+        cout << "Pas emprunte";
+        return;
+    }
+
+    livre->restitue();
 }

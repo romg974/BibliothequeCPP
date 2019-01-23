@@ -16,8 +16,11 @@ private:
 public:
     Album(int code, string auteur, string titre, string editeur, string isbn,
           string public_destine, string illustrations);
-    string getIllustrations();
-    void setIllustrations(string illustrations);
+
     void affiche();
+
+    const string &getIllustrations() const;
+
+    void setIllustrations(const string &illustrations);
 };
 #endif //BIBLIOTHEQUECPP_ALBUM_H

@@ -23,5 +23,5 @@ void Poesie::setStyle(string style) {
 
 void Poesie::affiche() {
     Livre::affiche();
-    cout<<" | Style :" << getStyle()<<endl;
+    cout<<" | Style :" << getStyle().c_str()<<endl;
 }

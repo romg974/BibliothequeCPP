@@ -9,8 +9,8 @@
 
 using namespace std;
 
-Adherent::Adherent(int type, const string &nom, const string &prenom, const string &adresse, int num_adherent,
-                   Bibliotheque *bibliotheque, int autorisation_emprunt, ) : Emprunteur(type), nom(nom), prenom(prenom),
+Adherent::Adherent(const string &nom, const string &prenom, const string &adresse, int num_adherent,
+                   Bibliotheque *bibliotheque, int autorisation_emprunt ) : Emprunteur(0), nom(nom), prenom(prenom),
                                                                            adresse(adresse), num_adherent(num_adherent),
                                                                            bibliotheque(bibliotheque),
                                                                            autorisation_emprunt(autorisation_emprunt) {}
@@ -60,8 +60,18 @@ int Adherent::getNum_adherent() const {
 }
 
 void Adherent::emprunte(int code){
-    for(auto i = 0; i < Adherent::bibliotheque.getLivres()->size() ; i++){
+    for(auto i = 0; i < Adherent::bibliotheque->getLivres()->size() ; i++){
         const vector<Livre> *livres = Adherent::bibliotheque->getLivres();
-        if (code == livres[i].getCode()){}
+        //if (code == livres[i].getCode()){}
     }
+}
+
+void Adherent::affiche()
+{
+    //*
+    cout << "Adherent : " << getPrenom().c_str() << " " << getNom().c_str()
+         << " | Adresse : "<< getAdresse().c_str()
+         << " | Bilbliotheque : "<< getBibliotheque()->getNom().c_str();
+         //<< " | Livres max : "<< getAutorisationEmprunt()
+         //*/
 }

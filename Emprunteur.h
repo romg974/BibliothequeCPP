@@ -20,9 +20,10 @@ public:
 
     Livre *getLivresEmpruntes() const;
 
-private:
+protected:
     int type;
     Livre* livres_empruntes;
+
 };
 
 

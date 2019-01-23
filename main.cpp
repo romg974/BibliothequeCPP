@@ -4,6 +4,7 @@
 #include "Bibliotheque.h"
 #include "Poesie.h"
 #include "PieceDeTheatre.h"
+#include "Adherent.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -19,6 +20,10 @@ int main() {
 //    biblio.addLivre(poesie);
 
     biblio.affiche();
+
+    Adherent adherent = Adherent("GRONDIN", "Romain", "2 Quai de Rive Neuve 13001", 1, &biblio, 4);
+
+    adherent.affiche();
 
     livre.affiche();
     cout << endl;
