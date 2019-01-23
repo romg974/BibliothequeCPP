@@ -16,6 +16,10 @@ int Emprunteur::getType() const {
     return type;
 }
 
-Livre *Emprunteur::getLivresEmpruntes() const {
-    return livres_empruntes;
+const vector<Livre*> *Emprunteur::getLivresEmpruntes() const {
+    return &livres_empruntes;
+}
+
+string Emprunteur::getNom() {
+    return "UNDEFINED";
 }

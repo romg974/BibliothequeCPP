@@ -75,16 +75,17 @@ Livre* Bibliotheque::getLivreFromCode(int code) {
     return &livres[num];
 }
 
-void Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
+Livre* Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
     Livre* livre = getLivreFromCode(code);
 
     if(livre->getEmprunte_par() != nullptr){
         //TODO: exception
         cout << "Deja emprunte";
-        return;
+        return nullptr;
     }
 
     livre->setEmprunte_par(emprunteur);
+    return livre;
 }
 
 void Bibliotheque::restitue(int code) {

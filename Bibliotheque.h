@@ -26,7 +26,7 @@ public:
     const vector<Livre> *getLivres() const;
     void addLivre(Livre &livre);
     void affiche();
-    void emprunte(int, Emprunteur*);
+    Livre* emprunte(int, Emprunteur*);
     void restitue(int);
 
 private:

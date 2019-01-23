@@ -41,7 +41,6 @@ private:
     int num_adherent;
     Bibliotheque* bibliotheque;
     int autorisation_emprunt;
-    vector<Livre> emprunted;
 };
 
 

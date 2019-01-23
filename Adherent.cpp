@@ -60,10 +60,8 @@ int Adherent::getNum_adherent() const {
 }
 
 void Adherent::emprunte(int code){
-    for(auto i = 0; i < Adherent::bibliotheque->getLivres()->size() ; i++){
-        const vector<Livre> *livres = Adherent::bibliotheque->getLivres();
-        //if (code == livres[i].getCode()){}
-    }
+    Livre* l = bibliotheque->emprunte(code, this);
+    livres_empruntes.push_back(l);
 }
 
 void Adherent::affiche()
@@ -71,7 +69,7 @@ void Adherent::affiche()
     //*
     cout << "Adherent : " << getPrenom().c_str() << " " << getNom().c_str()
          << " | Adresse : "<< getAdresse().c_str()
-         << " | Bilbliotheque : "<< getBibliotheque()->getNom().c_str();
-         //<< " | Livres max : "<< getAutorisationEmprunt()
+         << " | Bilbliotheque : "<< getBibliotheque()->getNom().c_str()
+         << " | Livres max : "<< getAutorisationEmprunt();
          //*/
 }

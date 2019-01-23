@@ -25,9 +25,25 @@ int main() {
 
     adherent.affiche();
 
+    cout << endl;
+
     livre.affiche();
     cout << endl;
 
+
+
     bd.affiche();
+
+    cout << endl << endl;
+
+    //biblio.emprunte(bd.getCode(), &adherent);
+    adherent.emprunte(bd.getCode());
+    bd.affiche();
+    cout << endl;
+    biblio.affiche();
+
+    cout << endl;
+    biblio.restitue(bd.getCode());
+    biblio.affiche();
     return 0;
 }

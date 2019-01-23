@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Livre.h"
+#include <vector>
 
 using namespace std;
 
@@ -18,11 +19,12 @@ public:
 
     int getType() const;
 
-    Livre *getLivresEmpruntes() const;
+    const vector <Livre*> *getLivresEmpruntes() const;
+    virtual string getNom();
 
 protected:
     int type;
-    Livre* livres_empruntes;
+    vector <Livre*> livres_empruntes;
 
 };
 
