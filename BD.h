@@ -16,9 +16,13 @@ public:
     BD(int code, string auteur, string titre, string editeur, string isbn, string public_destine,
             string dessinateur);
 
-    string getDessinateur();
-    void setDessinateur(string dessinateur);
+    BD(const BD*);
+
     void affiche();
+
+    const string &getDessinateur() const;
+
+    void setDessinateur(const string &dessinateur);
 
 private:
     string dessinateur;

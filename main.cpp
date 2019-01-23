@@ -13,6 +13,7 @@ int main() {
     PieceDeTheatre piecedetheatre = PieceDeTheatre(322,"ok","1","2","3","DACC",12);
 //    Poesie poesie = Poesie(132, "Rimbaud" , "Recueil numéro 3", "Poetes" , "12093209" , "vieux" , "Prose");
     Bibliotheque biblio = Bibliotheque("Alcazar", "Vieux Port", 13001);
+    Bibliotheque cdi = Bibliotheque("CDI", "Centrale", 13013);
 
     biblio.addLivre(livre);
     biblio.addLivre(bd);
@@ -42,10 +43,33 @@ int main() {
     bd.affiche();
     cout << endl;
     biblio.affiche();
-    biblio.removeLivre(livre.getCode());
+    //biblio.removeLivre(livre.getCode());
 
     cout << endl;
     biblio.restitue(bd.getCode());
     biblio.affiche();
+
+    cout << endl << endl << endl;
+    cdi.demande(&biblio, "0102030405");
+    biblio.affiche();
+
+    Livre l = Livre(livre);
+    l.restitue();
+    l.affiche();
+
+    cout << endl << endl << endl;
+
+    bd.affiche();
+    BD bd2 = BD(bd);
+    cout << endl;
+    bd2.affiche();
+    cout << endl;
+    bd2.setEditeur("Coucou");
+    cout << endl;
+    bd.affiche();
+    cout << endl;
+    bd2.affiche();
+
+    //cdi.affiche();
     return 0;
 }

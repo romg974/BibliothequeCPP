@@ -12,6 +12,7 @@ using namespace std;
 Poesie::Poesie(int code, string auteur, string titre, string editeur, string isbn,string public_destine, string style)
         : Livre(code, auteur, titre, editeur, isbn, public_destine) {
     this->style = style;
+    this->type = Livre::POESIE;
 }
 
 string Poesie::getStyle() {

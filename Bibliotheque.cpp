@@ -105,6 +105,32 @@ Livre* Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
     return livre;
 }
 
+Livre* Bibliotheque::demande(Bibliotheque *biblio, string isbn) {
+    int code = biblio->getCodeFromISBN(isbn);
+    if(code == -1){
+        cout << "La bibliotheque cibre n'a pas ce livre." << endl;
+        return nullptr;
+    }
+
+    Livre *l = biblio->emprunte(code, this);
+    this->addLivre(*l);
+
+}
+
+int Bibliotheque::getCodeFromISBN(string isbn){
+    bool found = false;
+    int code = -1;
+    for(auto i = 0; i < livres.size() ; i++){
+        cout << livres[i].getIsbn();
+        if(livres[i].getIsbn() == isbn){
+            found = true;
+            code = livres[i].getCode();
+        }
+    }
+
+    return code;
+}
+
 void Bibliotheque::restitue(int code) {
     Livre* livre = getLivreFromCode(code);
 

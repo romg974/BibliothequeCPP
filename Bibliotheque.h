@@ -12,6 +12,7 @@ using namespace std;
 #include "Emprunteur.h"
 #include "Livre.h"
 #include <vector>
+class Adherent;
 
 class Bibliotheque : public Emprunteur {
 public:
@@ -28,6 +29,8 @@ public:
     void removeLivre(int);
     void affiche();
     Livre* emprunte(int, Emprunteur*);
+    Livre* demande(Bibliotheque*, string);
+    int getCodeFromISBN(string);
     void restitue(int);
 
 private:
@@ -35,6 +38,7 @@ private:
     string adresse;
     int code;
     vector<Livre> livres;
+    vector<Adherent*> adherents;
     int nbLivres;
 
     Livre* getLivreFromCode(int);
