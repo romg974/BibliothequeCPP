@@ -3,6 +3,7 @@
 //
 
 #include "Bibliotheque.h"
+#include "Adherent.h"
 #include "Livre.h"
 #include "Emprunteur.h"
 
@@ -45,6 +46,10 @@ void Bibliotheque::addLivre(Livre &livre) {
     livres.push_back(livre);
 }
 
+void Bibliotheque::addAdherent(Adherent &adherent) {
+    adherents.push_back(&adherent);
+}
+
 void Bibliotheque::removeLivre(int code) {
     bool found = false;
     int num = 0;
@@ -69,6 +74,14 @@ void Bibliotheque::affiche()
     cout << "Livres (" << livres.size() << ") : " << endl;
     for(auto i = 0; i < livres.size() ; i++){
         livres[i].affiche();
+        cout << endl;
+    }
+}
+
+void Bibliotheque::affiche_adherents()
+{
+    for (auto i = 0; i < adherents.size() ; i++){
+        adherents[i]->affiche();
         cout << endl;
     }
 }

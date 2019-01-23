@@ -32,7 +32,8 @@ public:
     Livre* demande(Bibliotheque*, string);
     int getCodeFromISBN(string);
     void restitue(int);
-
+    void addAdherent(Adherent &adherent);
+    void affiche_adherents();
 private:
     string nom;
     string adresse;
