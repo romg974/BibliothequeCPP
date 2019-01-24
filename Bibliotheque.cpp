@@ -39,15 +39,11 @@ int Bibliotheque::getCode() const {
     return code;
 }
 
-void Bibliotheque::setCode(int code) {
-    Bibliotheque::code = code;
-}
-
-const vector<Livre> *Bibliotheque::getLivres() const {
+const vector<Livre*> *Bibliotheque::getLivres() const {
     return &livres;
 }
 
-void Bibliotheque::addLivre(Livre &livre) {
+void Bibliotheque::addLivre(Livre *livre) {
     livres.push_back(livre);
 }
 
@@ -59,7 +55,7 @@ void Bibliotheque::removeLivre(int code) {
     bool found = false;
     int num = 0;
     for(auto i = 0; i < livres.size() ; i++){
-        if(livres[i].getCode() == code){
+        if(livres[i]->getCode() == code){
             found = true;
             num = i;
         }
@@ -83,7 +79,7 @@ void Bibliotheque::afficheLivres()
     cout << "Livres de " << getNom() << " (" << livres.size() << ") : " << endl;
     for(auto i = 0; i < livres.size() ; i++){
         cout << i+1 << ")";
-        livres[i].affiche();
+        livres[i]->affiche();
         cout << endl;
     }
 }
@@ -102,7 +98,7 @@ Livre* Bibliotheque::getLivreFromCode(int code) {
     bool found = false;
     int num = 0;
     for(auto i = 0; i < livres.size() ; i++){
-        if(livres[i].getCode() == code){
+        if(livres[i]->getCode() == code){
             found = true;
             num = i;
         }
@@ -114,7 +110,7 @@ Livre* Bibliotheque::getLivreFromCode(int code) {
         return nullptr;
     }
 
-    return &livres[num];
+    return livres[num];
 }
 
 Livre* Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
@@ -148,43 +144,40 @@ Livre* Bibliotheque::demande(Bibliotheque *biblio, string isbn) {
     switch(l->getType()){
         case Livre::ALBUM:{
             Album *a = dynamic_cast<Album*>(l);
-            Album copie = Album(a);
-            copie.restitue();
+            Album *copie = new Album(a);
+            copie->restitue();
             this->addLivre(copie);
             break;
         }
         case Livre::BD:{
-            cout << 1;
             BD *b = dynamic_cast<BD*>(l);
-            cout << l->getType() ;
-            BD copie = BD(l->getCode(), l->getAuteur(), l->getTitre(), l->getEditeur(), l->getIsbn(), l->getPublic_destine(), "test");
-            copie.restitue();
-            cout << 3;
+            BD *copie = new BD(b);
+            copie->restitue();
             this->addLivre(copie);
             break;
         }
         case Livre::PIECE:{
             PieceDeTheatre *p = dynamic_cast<PieceDeTheatre*>(l);
-            PieceDeTheatre copie = PieceDeTheatre(p);
-            copie.restitue();
+            PieceDeTheatre *copie = new PieceDeTheatre(p);
+            copie->restitue();
             this->addLivre(copie);
         }
         case Livre::POESIE:{
             Poesie *p = dynamic_cast<Poesie*>(l);
-            Poesie copie = Poesie(p);
-            copie.restitue();
+            Poesie *copie = new Poesie(p);
+            copie->restitue();
             this->addLivre(copie);
         }
         case Livre::ROMAN:{
             Roman *r = dynamic_cast<Roman*>(l);
-            Roman copie = Roman(r);
-            copie.restitue();
+            Roman *copie = new Roman(r);
+            copie->restitue();
             this->addLivre(copie);
         }
         default:
-            Livre copie = Livre(l);
-            copie.restitue();
-            this->addLivre(*l);
+            Livre *copie = new Livre(l);
+            copie->restitue();
+            this->addLivre(copie);
     }
 
     return l;
@@ -194,9 +187,9 @@ int Bibliotheque::getCodeFromISBN(string isbn){
     bool found = false;
     int code = -1;
     for(auto i = 0; i < livres.size() ; i++){
-        if(livres[i].getIsbn() == isbn){
+        if(livres[i]->getIsbn() == isbn){
             found = true;
-            code = livres[i].getCode();
+            code = livres[i]->getCode();
         }
     }
 

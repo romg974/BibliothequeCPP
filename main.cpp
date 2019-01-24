@@ -66,10 +66,10 @@ void tests(){
     Bibliotheque biblio = Bibliotheque("Alcazar", "Vieux Port", 13001);
     Bibliotheque cdi = Bibliotheque("CDI", "Centrale", 13013);
 
-    biblio.addLivre(livre);
-    biblio.addLivre(bd);
-    biblio.addLivre(piecedetheatre);
-    biblio.addLivre(poesie);
+    biblio.addLivre(&livre);
+    biblio.addLivre(&bd);
+    biblio.addLivre(&piecedetheatre);
+    biblio.addLivre(&poesie);
 
     Adherent adherent = Adherent("GRONDIN", "Romain", "2 Quai de Rive Neuve 13001", 1, &biblio, 2);
     biblio.addAdherent(adherent);
@@ -90,7 +90,7 @@ void tests(){
     cout << endl;
     bd.affiche();
     cout << endl;
-    biblio.affiche();
+    biblio.afficheLivres();
     cout << endl;
     adherent.afficheLivresEmpruntes();
     cout << endl << endl;
@@ -138,10 +138,10 @@ void fixture()
     Poesie poesie = Poesie(132, "Rimbaud" , "Recueil numéro 3", "Poetes" , "12093209" , "vieux" , "Prose");
 
     Bibliotheque biblio = Bibliotheque("Alcazar", "Vieux Port", 13001);
-    biblio.addLivre(livre);
-    biblio.addLivre(bd);
-    biblio.addLivre(piecedetheatre);
-    biblio.addLivre(poesie);
+    biblio.addLivre(&livre);
+    biblio.addLivre(&bd);
+    biblio.addLivre(&piecedetheatre);
+    biblio.addLivre(&poesie);
 
     Livre livre2 = Livre(1202010, "Romain", "Le cours de C++", "Centrale", "0102030405", "Tout public");
     BD bd2 = BD(1, "Romain", "Un jour à Centrale", "Centrale", "01020301", "Tout public", "Edwyn");
@@ -149,10 +149,10 @@ void fixture()
     Poesie poesie2 = Poesie(132, "Rimbaud" , "Le poète centralien", "Poetes" , "12093209" , "vieux" , "Prose");
 
     Bibliotheque cdi = Bibliotheque("CDI", "Centrale", 13013);
-    cdi.addLivre(livre2);
-    cdi.addLivre(bd2);
-    cdi.addLivre(piecedetheatre2);
-    cdi.addLivre(poesie2);
+    cdi.addLivre(&livre2);
+    cdi.addLivre(&bd2);
+    cdi.addLivre(&piecedetheatre2);
+    cdi.addLivre(&poesie2);
 
     biblios.push_back(biblio);
     biblios.push_back(cdi);

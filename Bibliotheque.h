@@ -23,9 +23,8 @@ public:
     const string &getAdresse() const;
     void setAdresse(const string &adresse);
     int getCode() const;
-    void setCode(int code);
-    const vector<Livre> *getLivres() const;
-    void addLivre(Livre &livre);
+    const vector<Livre*> *getLivres() const;
+    void addLivre(Livre *livre);
     void removeLivre(int);
     void affiche();
     void afficheLivres();
@@ -39,7 +38,7 @@ private:
     string nom;
     string adresse;
     int code;
-    vector<Livre> livres;
+    vector<Livre*> livres;
     vector<Adherent*> adherents;
     int nbLivres;
 
