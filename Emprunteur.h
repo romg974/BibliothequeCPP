@@ -22,6 +22,8 @@ public:
     const vector <Livre*> *getLivresEmpruntes() const;
     virtual string getNom();
 
+    void afficheLivresEmpruntes();
+
 protected:
     int type;
     vector <Livre*> livres_empruntes;

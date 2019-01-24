@@ -18,10 +18,11 @@ public:
            string public_destine, string style);
 
     Poesie(const Poesie*);
-
-    string getStyle();
-    void setStyle(string style);
     void affiche();
+
+    const string &getStyle() const;
+
+    void setStyle(const string &style);
 };
 
 #endif //BIBLIOTHEQUECPP_POESIE_H

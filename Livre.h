@@ -17,7 +17,7 @@ public:
           const string &public_destine);
 
     Livre();
-    Livre(const Livre*);
+    Livre(Livre*);
 
     const string &getAuteur() const;
     void setAuteur(const string &auteur);
@@ -36,6 +36,10 @@ public:
 
     void setEmprunte_par(Emprunteur *emprunte_par);
     void restitue();
+
+    int getType() const;
+
+    virtual void setIllustrations(const string &illustrations);
 
     enum types { LIVRE, BD, ALBUM, POESIE, ROMAN, PIECE};
 

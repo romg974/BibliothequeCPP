@@ -86,6 +86,8 @@ void Adherent::restitue(int code) {
         return;
     }
 
+    livres_empruntes.erase(livres_empruntes.begin()+num);
+    bibliotheque->restitue(code);
 
 }
 

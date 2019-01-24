@@ -28,12 +28,13 @@ public:
     void addLivre(Livre &livre);
     void removeLivre(int);
     void affiche();
+    void afficheLivres();
     Livre* emprunte(int, Emprunteur*);
     Livre* demande(Bibliotheque*, string);
     int getCodeFromISBN(string);
     void restitue(int);
     void addAdherent(Adherent &adherent);
-    void affiche_adherents();
+    void afficheAdherents();
 private:
     string nom;
     string adresse;

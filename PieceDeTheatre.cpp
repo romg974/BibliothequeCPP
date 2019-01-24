@@ -4,6 +4,9 @@
 
 #include "PieceDeTheatre.h"
 
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 PieceDeTheatre::PieceDeTheatre(int code, string auteur, string titre, string editeur, string isbn,string public_destine, int siecle)
@@ -17,15 +20,15 @@ PieceDeTheatre::PieceDeTheatre(const PieceDeTheatre* pdt) : Livre(pdt->getCode()
     this->type = Livre::PIECE;
 }
 
-int PieceDeTheatre::getSiecle(){
+int PieceDeTheatre::getSiecle() const {
     return siecle;
 }
 
 void PieceDeTheatre::setSiecle(int siecle) {
-    this->siecle = siecle;
+    PieceDeTheatre::siecle = siecle;
 }
 
 void PieceDeTheatre::affiche() {
     Livre::affiche();
-    cout<<" | Siècle d'écriture :" << getSiecle()<<endl;
+    cout << " | Siècle d'écriture :" << getSiecle() << endl;
 }

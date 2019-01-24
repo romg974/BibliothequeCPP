@@ -6,6 +6,11 @@
 #include "Adherent.h"
 #include "Livre.h"
 #include "Emprunteur.h"
+#include "Album.h"
+#include "BD.h"
+#include "PieceDeTheatre.h"
+#include "Poesie.h"
+#include "Roman.h"
 
 #include <iostream>
 #include <string>
@@ -71,16 +76,23 @@ void Bibliotheque::affiche()
 {
     cout << "BIBLIOTHEQUE " << getNom() << endl;
     cout << "Code : " << getCode() << " | Adresse : " << getAdresse() << endl;
-    cout << "Livres (" << livres.size() << ") : " << endl;
+}
+
+void Bibliotheque::afficheLivres()
+{
+    cout << "Livres de " << getNom() << " (" << livres.size() << ") : " << endl;
     for(auto i = 0; i < livres.size() ; i++){
+        cout << i+1 << ")";
         livres[i].affiche();
         cout << endl;
     }
 }
 
-void Bibliotheque::affiche_adherents()
+void Bibliotheque::afficheAdherents()
 {
+    cout << "Adherents de " << getNom() << " (" << adherents.size() << ") : " << endl;
     for (auto i = 0; i < adherents.size() ; i++){
+        cout << i+1 << ")";
         adherents[i]->affiche();
         cout << endl;
     }
@@ -118,6 +130,12 @@ Livre* Bibliotheque::emprunte(int code, Emprunteur* emprunteur) {
     return livre;
 }
 
+/**
+ * Ask a book to another biblio
+ * @param biblio
+ * @param isbn
+ * @return
+ */
 Livre* Bibliotheque::demande(Bibliotheque *biblio, string isbn) {
     int code = biblio->getCodeFromISBN(isbn);
     if(code == -1){
@@ -126,15 +144,56 @@ Livre* Bibliotheque::demande(Bibliotheque *biblio, string isbn) {
     }
 
     Livre *l = biblio->emprunte(code, this);
-    this->addLivre(*l);
+    livres_empruntes.push_back(l);
+    switch(l->getType()){
+        case Livre::ALBUM:{
+            Album *a = dynamic_cast<Album*>(l);
+            Album copie = Album(a);
+            copie.restitue();
+            this->addLivre(copie);
+            break;
+        }
+        case Livre::BD:{
+            cout << 1;
+            BD *b = dynamic_cast<BD*>(l);
+            cout << l->getType() ;
+            BD copie = BD(l->getCode(), l->getAuteur(), l->getTitre(), l->getEditeur(), l->getIsbn(), l->getPublic_destine(), "test");
+            copie.restitue();
+            cout << 3;
+            this->addLivre(copie);
+            break;
+        }
+        case Livre::PIECE:{
+            PieceDeTheatre *p = dynamic_cast<PieceDeTheatre*>(l);
+            PieceDeTheatre copie = PieceDeTheatre(p);
+            copie.restitue();
+            this->addLivre(copie);
+        }
+        case Livre::POESIE:{
+            Poesie *p = dynamic_cast<Poesie*>(l);
+            Poesie copie = Poesie(p);
+            copie.restitue();
+            this->addLivre(copie);
+        }
+        case Livre::ROMAN:{
+            Roman *r = dynamic_cast<Roman*>(l);
+            Roman copie = Roman(r);
+            copie.restitue();
+            this->addLivre(copie);
+        }
+        default:
+            Livre copie = Livre(l);
+            copie.restitue();
+            this->addLivre(*l);
+    }
 
+    return l;
 }
 
 int Bibliotheque::getCodeFromISBN(string isbn){
     bool found = false;
     int code = -1;
     for(auto i = 0; i < livres.size() ; i++){
-        cout << livres[i].getIsbn();
         if(livres[i].getIsbn() == isbn){
             found = true;
             code = livres[i].getCode();

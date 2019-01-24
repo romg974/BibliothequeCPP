@@ -20,12 +20,12 @@ Poesie::Poesie(const Poesie* poesie) : Livre(poesie->getCode(), poesie->getAuteu
     this->type = Livre::POESIE;
 }
 
-string Poesie::getStyle() {
+const string &Poesie::getStyle() const {
     return style;
 }
 
-void Poesie::setStyle(string style) {
-    this->style = style;
+void Poesie::setStyle(const string &style) {
+    Poesie::style = style;
 }
 
 void Poesie::affiche() {

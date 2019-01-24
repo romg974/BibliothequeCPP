@@ -20,13 +20,12 @@ Roman::Roman(const Roman* roman) : Livre(roman->getCode(), roman->getAuteur(), r
     this->type = Livre::ROMAN;
 }
 
-
-string Roman::getGenre(){
+const string &Roman::getGenre() const {
     return genre;
 }
 
-void Roman::setGenre(string genre) {
-    this->genre = genre;
+void Roman::setGenre(const string &genre) {
+    Roman::genre = genre;
 }
 
 void Roman::affiche() {

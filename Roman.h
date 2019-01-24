@@ -17,9 +17,11 @@ public:
     Roman(int code, string auteur, string titre, string editeur, string isbn,
            string public_destine, string genre);
     Roman(const Roman*);
-    const string getGenre();
-    void setGenre(string genre);
     void affiche();
+
+    const string &getGenre() const;
+
+    void setGenre(const string &genre);
 };
 
 

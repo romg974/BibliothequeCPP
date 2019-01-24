@@ -5,6 +5,7 @@
 #include "Livre.h"
 #include "Emprunteur.h"
 #include "Adherent.h"
+#include "Album.h"
 #include <iostream>
 #include <string>
 
@@ -22,9 +23,13 @@ Livre::Livre() {
     type = Livre::LIVRE;
 }
 
-Livre::Livre(const Livre* l) : code(l->getCode()), auteur(l->getAuteur()), titre(l->getTitre()), editeur(l->getEditeur()), isbn(l->getIsbn()), public_destine(l->getPublic_destine()){
+Livre::Livre(Livre* l) : code(l->getCode()), auteur(l->getAuteur()), titre(l->getTitre()), editeur(l->getEditeur()), isbn(l->getIsbn()), public_destine(l->getPublic_destine()){
     emprunte_par = nullptr;
     type = Livre::LIVRE;
+}
+
+int Livre::getType() const {
+    return type;
 }
 
 int Livre::getCode() const {
@@ -104,3 +109,5 @@ void Livre::affiche()
         cout << "Disponible";
     }
 }
+
+void Livre::setIllustrations(const string &illustrations) {}

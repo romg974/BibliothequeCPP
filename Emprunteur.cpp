@@ -23,3 +23,12 @@ const vector<Livre*> *Emprunteur::getLivresEmpruntes() const {
 string Emprunteur::getNom() {
     return "UNDEFINED";
 }
+
+void Emprunteur::afficheLivresEmpruntes() {
+    cout << "Livres empruntes : " << endl;
+    for(auto i = 0; i < livres_empruntes.size() ; i++){
+        cout << i+1 << ") ";
+        livres_empruntes[i]->affiche();
+        cout << endl;
+    }
+}

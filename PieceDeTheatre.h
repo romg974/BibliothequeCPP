@@ -17,8 +17,10 @@ public:
     PieceDeTheatre(int code, string auteur, string titre, string editeur, string isbn,
           string public_destine, int siecle);
     PieceDeTheatre(const PieceDeTheatre*);
-    int getSiecle();
-    void setSiecle(int siecle);
     void affiche();
+
+    int getSiecle() const;
+
+    void setSiecle(int siecle);
 };
 #endif //BIBLIOTHEQUECPP_PIECEDETHÉATRE_H
