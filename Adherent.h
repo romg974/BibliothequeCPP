@@ -15,6 +15,7 @@ public:
     Adherent(const string &nom, const string &prenom, const string &adresse, int num_adherent,
              Bibliotheque *bibliotheque, int autorisation_emprunt);
 
+
     const string &getNom() const;
     void setNom(const string &nom);
 

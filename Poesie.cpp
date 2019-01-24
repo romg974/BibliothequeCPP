@@ -15,6 +15,11 @@ Poesie::Poesie(int code, string auteur, string titre, string editeur, string isb
     this->type = Livre::POESIE;
 }
 
+Poesie::Poesie(const Poesie* poesie) : Livre(poesie->getCode(), poesie->getAuteur(), poesie->getTitre(), poesie->getEditeur(), poesie->getIsbn(), poesie->public_destine), style(poesie->getStyle())
+{
+    this->type = Livre::POESIE;
+}
+
 string Poesie::getStyle() {
     return style;
 }

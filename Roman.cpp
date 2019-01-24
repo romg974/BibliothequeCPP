@@ -15,6 +15,12 @@ Roman::Roman(int code, string auteur, string titre, string editeur, string isbn,
 
 }
 
+Roman::Roman(const Roman* roman) : Livre(roman->getCode(), roman->getAuteur(), roman->getTitre(), roman->getEditeur(), roman->getIsbn(), roman->public_destine), genre(roman->getGenre())
+{
+    this->type = Livre::ROMAN;
+}
+
+
 string Roman::getGenre(){
     return genre;
 }

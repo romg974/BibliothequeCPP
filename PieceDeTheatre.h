@@ -16,6 +16,7 @@ private:
 public:
     PieceDeTheatre(int code, string auteur, string titre, string editeur, string isbn,
           string public_destine, int siecle);
+    PieceDeTheatre(const PieceDeTheatre*);
     int getSiecle();
     void setSiecle(int siecle);
     void affiche();

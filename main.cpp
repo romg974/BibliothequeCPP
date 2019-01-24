@@ -30,7 +30,8 @@ int main() {
 
     livre.affiche();
     cout << endl;
-
+    biblio.addAdherent(adherent);
+    biblio.affiche_adherents();
 
 
     bd.affiche();

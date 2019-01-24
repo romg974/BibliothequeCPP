@@ -16,6 +16,10 @@ Album::Album(int code, string auteur, string titre, string editeur, string isbn,
 
 }
 
+Album::Album(const Album* album) : Livre(album->getCode(), album->getAuteur(), album->getTitre(), album->getEditeur(), album->getIsbn(), album->public_destine), illustrations(album->getIllustrations())
+{
+    this->type = Livre::ALBUM;
+}
 
 
 const string &Album::getIllustrations() const {

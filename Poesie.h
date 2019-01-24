@@ -17,6 +17,8 @@ public:
     Poesie(int code, string auteur, string titre, string editeur, string isbn,
            string public_destine, string style);
 
+    Poesie(const Poesie*);
+
     string getStyle();
     void setStyle(string style);
     void affiche();
